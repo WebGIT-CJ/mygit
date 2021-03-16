@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <template id="tem">
+        <div>
+            <h2>{{myvue[0].uname}}{{myvue[0].age}}{{myvue[0].id}}</h2>
+        </div>
+    </template>
+    <div id="app">
+        <my-com :myvue="lists"></my-com>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                lists:[{
+                    id:520,
+                    uname:"陈炯",
+                    age:22
+                }]
+            },
+            components:{
+                'my-com':{
+                    template:'#tem',
+                    props:['myvue']
+                }
+            }
+        })
+    </script>
+</body>
+</html>
